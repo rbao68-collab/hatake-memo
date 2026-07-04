@@ -402,6 +402,26 @@ async function exportCSV() {
 document.getElementById('csv-btn').addEventListener('click', exportCSV);
 
 /* ============================================================
+   ごようぼう（フィードバック）：mailto 起動
+   ============================================================ */
+function sendFeedback() {
+  const to = 'info@az-llc.co.jp';
+  const subject = '畑メモ ごようぼう';
+  const body =
+    'ごようぼう・お困りごと：\n' +
+    '（ここにご記入ください）\n' +
+    '\n' +
+    '---\n' +
+    '畑メモ v0.1.2';
+  const url = 'mailto:' + to +
+    '?subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent(body);
+  window.location.href = url;
+}
+
+document.getElementById('feedback-btn').addEventListener('click', sendFeedback);
+
+/* ============================================================
    起動時
    ============================================================ */
 resetSaleFlow();
