@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#4a7c2f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="畑メモ">
+  <title>畑メモ</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+</head>
+<body>
+  <!-- ===== 上部ヘッダー ===== -->
+  <header class="app-header">
+    <h1 class="app-title">🌱 畑メモ</h1>
+  </header>
+
+  <!-- ===== 画面 A：売上 ===== -->
+  <main id="screen-sales" class="screen" data-screen="sales">
+    <!-- Step 1：品目 -->
+    <section class="step" data-step="1">
+      <p class="step-hint">① 品目をえらぶ</p>
+      <div class="grid-btns">
+        <button class="big-btn" data-item="スイカ"><span class="be-emoji">🍉</span>スイカ</button>
+        <button class="big-btn" data-item="米"><span class="be-emoji">🌾</span>米</button>
+        <button class="big-btn" data-item="野菜"><span class="be-emoji">🥬</span>野菜</button>
+        <button class="big-btn" data-item="その他"><span class="be-emoji">📦</span>その他</button>
+      </div>
+    </section>
+
+    <!-- Step 2：金額 -->
+    <section class="step" data-step="2" hidden>
+      <p class="step-hint">② 金額を入力 <span class="chip" id="sale-item-chip">—</span></p>
+      <div class="amount-row">
+        <input id="sale-amount" class="amount-input" type="text" inputmode="numeric"
+               pattern="[0-9]*" placeholder="0" autocomplete="off" enterkeyhint="next">
+        <span class="amount-unit">円</span>
+      </div>
+      <label class="date-field">
+        <span class="date-label">日付</span>
+        <input id="sale-date" class="date-input" type="date">
+      </label>
+      <div class="step-actions">
+        <button class="sub-btn" data-goto="1">← もどる</button>
+        <button class="next-btn" id="sale-to-3">つぎへ →</button>
+      </div>
+    </section>
+
+    <!-- Step 3：販売先 -->
+    <section class="step" data-step="3" hidden>
+      <p class="step-hint">③ 販売先をえらんで保存</p>
+      <div class="grid-btns">
+        <button class="big-btn save-dest" data-dest="直売所"><span class="be-emoji">🏪</span>直売所</button>
+        <button class="big-btn save-dest" data-dest="スーパー"><span class="be-emoji">🛒</span>スーパー</button>
+        <button class="big-btn save-dest" data-dest="その場で"><span class="be-emoji">🤝</span>その場で</button>
+      </div>
+      <div class="step-actions">
+        <button class="sub-btn" data-goto="2">← もどる</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 画面 B：作業 ===== -->
+  <main id="screen-work" class="screen" data-screen="work" hidden>
+    <p class="step-hint">きょうの作業をタップ</p>
+    <div class="grid-btns">
+      <button class="big-btn work-btn" data-work="水やり"><span class="be-emoji">💧</span>水やり</button>
+      <button class="big-btn work-btn" data-work="収穫"><span class="be-emoji">🧺</span>収穫</button>
+      <button class="big-btn work-btn" data-work="防除"><span class="be-emoji">🧴</span>防除</button>
+      <button class="big-btn work-btn" data-work="電柵点検"><span class="be-emoji">⚡</span>電柵点検</button>
+      <button class="big-btn work-btn" data-work="その他"><span class="be-emoji">📝</span>その他</button>
+    </div>
+  </main>
+
+  <!-- ===== 画面 C：記録 ===== -->
+  <main id="screen-records" class="screen" data-screen="records" hidden>
+    <div class="month-total-card">
+      <span class="mt-label">今月の売上合計</span>
+      <span class="mt-value" id="month-total">¥0</span>
+    </div>
+
+    <button id="csv-btn" class="csv-btn">
+      <span class="be-emoji">📤</span>CSVで書き出す
+    </button>
+
+    <div id="records-list" class="records-list">
+      <!-- app.js が描画 -->
+    </div>
+
+    <footer class="privacy-note">
+      <p class="privacy-line">データはこのスマホの中だけに保存されます。外部に送信されません。</p>
+      <p class="version-line">畑メモ v0.1.1</p>
+    </footer>
+  </main>
+
+  <!-- ===== 下部タブ ===== -->
+  <nav class="tabbar" role="tablist">
+    <button class="tab is-active" data-tab="sales" role="tab" aria-selected="true">
+      <span class="tab-icon">💰</span>
+      <span class="tab-label">売上</span>
+    </button>
+    <button class="tab" data-tab="work" role="tab" aria-selected="false">
+      <span class="tab-icon">✅</span>
+      <span class="tab-label">作業</span>
+    </button>
+    <button class="tab" data-tab="records" role="tab" aria-selected="false">
+      <span class="tab-icon">📋</span>
+      <span class="tab-label">記録</span>
+    </button>
+  </nav>
+
+  <!-- トースト（保存通知） -->
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
