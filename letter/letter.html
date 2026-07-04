@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>畑メモ ご挨拶状</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+
+  html, body { margin: 0; padding: 0; background: #eee; }
+
+  .page {
+    position: relative;
+    box-sizing: border-box;
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 15mm 15mm 14mm;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;   /* 縦書き本文を紙面右側から始める */
+  }
+
+  .letter {
+    writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+    height: 100%;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+    font-size: 14pt;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    color: #1a1a1a;
+    text-align: start;
+  }
+
+  .letter p { margin: 0; }
+  /* 段落間はわずかに空け、読みやすく */
+  .letter > * + * { margin-block-start: 0.4em; }
+
+  /* 「一、」の各条は前に一行分の空きを入れる */
+  .item { margin-block-start: 1.3em; }
+
+  .closing { margin-block-start: 1.0em; }
+  .date { margin-block-start: 1.0em; }
+  .sign { margin-block-start: 0.4em; font-size: 14pt; }
+
+  /* QRコード（左下） */
+  .qr-area {
+    position: absolute;
+    left: 18mm;
+    bottom: 16mm;
+    width: 40mm;
+    text-align: center;
+  }
+  .qr-img {
+    display: block;
+    width: 40mm;
+    height: 40mm;
+    image-rendering: pixelated;   /* モジュールをくっきり印刷 */
+  }
+  .qr-url {
+    margin-top: 1.5mm;
+    font-family: "Menlo", "Courier New", monospace;
+    font-size: 7pt;
+    letter-spacing: -0.01em;
+    color: #333;
+    word-break: break-all;
+    line-height: 1.3;
+  }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+  @media screen {
+    body { padding: 12px 0; }
+    .page { box-shadow: 0 2px 12px rgba(0,0,0,.25); }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="letter">
+      <p>拝啓　暑い日が続きますが、いかがお過ごしでしょうか。</p>
+      <p>いつもおいしい野菜や果物をいただき、ありがとうございます。先日のスイカも、子どもと二人であっという間にいただきました。本当においしくて、二人とも大喜びでした。</p>
+      <p>いただいてばかりで、いつか何かお返しをと思うのですが、私は畑のことがまだ何も分かりません。自分でも花や野菜を育ててお返しできたらと思うものの、いつになることやら分かりません。</p>
+      <p>そこで、今の私にできることをひとつだけ、作ってみました。「畑メモ」という、スマホで使える小さな道具です。売上や作業を、指先ひとつで記録できます。</p>
+
+      <p class="item">一、無料です。登録もログインも要りません。</p>
+      <p class="item">一、記録は〇〇さんのスマホの中だけに保存されます。私の側から読むことは一切できません。どうぞご安心ください。</p>
+      <p class="item">一、「こんな機能がほしい」というものがございましたら、いつでもお声かけください。喜んでお作りします。</p>
+      <p class="item">一、もしお役に立たなければ、この紙ごと捨てていただいて構いません。どうぞお気になさらず。</p>
+
+      <p class="after-items">左のQRコードをスマホのカメラにかざすと、すぐにお使いいただけます。開いた画面で「ホーム画面に追加」を押すと、アプリのように使えます。</p>
+      <p>少しでも畑仕事の足しになれば、これほどうれしいことはありません。今後とも、どうぞよろしくお願いいたします。</p>
+
+      <p class="closing">敬具</p>
+      <p class="date">　二〇二六年　盛夏</p>
+      <p class="sign">　　　　　　　　　　鮑（ホウ）</p>
+    </div>
+
+    <div class="qr-area">
+      <img class="qr-img" src="qr.png" alt="畑メモ QRコード">
+      <div class="qr-url">https://hatake-memo.rbao68.workers.dev</div>
+    </div>
+  </div>
+</body>
+</html>
