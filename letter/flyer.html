@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>畑メモ チラシ（A5）</title>
+<style>
+  @page { size: 148mm 210mm; margin: 0; }   /* A5 縦 */
+
+  html, body { margin: 0; padding: 0; background: #eee; }
+
+  .page {
+    box-sizing: border-box;
+    width: 148mm;
+    height: 210mm;
+    margin: 0 auto;
+    padding: 11mm 12mm 9mm;
+    background: #fff;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* 見出しロゴ */
+  .title {
+    margin: 0;
+    text-align: center;
+    font-size: 27pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #3a6224;
+  }
+  .subtitle {
+    margin: 2mm 0 0;
+    text-align: center;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* QR（上部・目立つ位置） */
+  .qr-wrap { text-align: center; margin: 4mm 0 3mm; }
+  .qr-img {
+    display: block;
+    width: 40mm;
+    height: 40mm;
+    margin: 0 auto;
+    image-rendering: pixelated;
+  }
+  .qr-url {
+    margin-top: 1.2mm;
+    font-family: "Menlo", "Courier New", monospace;
+    font-size: 8pt;
+    color: #333;
+  }
+
+  /* 本文セクション */
+  .sec { margin-top: 2.2mm; }
+  .sec h2 {
+    margin: 0 0 1.5mm;
+    font-size: 12.5pt;
+    font-weight: 700;
+    color: #3a6224;
+    border-bottom: 1.5pt solid #cdd8bd;
+    padding-bottom: 0.8mm;
+  }
+  .sec p { margin: 0; font-size: 10pt; line-height: 1.65; }
+  .bullets { margin: 0; font-size: 10pt; line-height: 1.6; }
+  .bullets .b { margin: 0 0 0.8mm; }
+  .bullets .b:last-child { margin-bottom: 0; }
+
+  /* フッター（会社名・連絡先） */
+  .foot {
+    margin-top: auto;
+    padding-top: 3mm;
+    border-top: 1.5pt solid #cdd8bd;
+    text-align: center;
+  }
+  .foot .co { font-size: 11pt; font-weight: 700; }
+  .foot .mail { font-size: 10.5pt; font-family: "Menlo", "Courier New", monospace; margin-top: 0.6mm; }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+  @media screen {
+    body { padding: 12px 0; }
+    .page { box-shadow: 0 2px 12px rgba(0,0,0,.25); }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <h1 class="title">畑メモ</h1>
+    <p class="subtitle">売上と作業を、ワンタップで記録できる無料アプリ</p>
+
+    <div class="qr-wrap">
+      <img class="qr-img" src="qr.png" alt="畑メモ QRコード">
+      <div class="qr-url">hatake-memo.rbao68.workers.dev</div>
+    </div>
+
+    <div class="sec">
+      <h2>とくちょう</h2>
+      <div class="bullets">
+        <div class="b">・無料。登録もログインも不要</div>
+        <div class="b">・スマホのカメラでQRコードを読み取り、<br>　「ホーム画面に追加」するだけ</div>
+        <div class="b">・記録はお使いのスマホの中だけに保存され、<br>　外部に送信されません</div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>ごようぼう、お聞かせください</h2>
+      <p>アプリ内の「📮 ごようぼうを送る」ボタンから、ほしい機能・使いにくい点を、どうぞお気軽にお送りください。できる限り対応いたします。</p>
+    </div>
+
+    <div class="sec">
+      <h2>農業以外のお仕事の方へ</h2>
+      <p>「畑メモ」は農家向けの一例です。「うちの仕事にも、こんな道具があれば」というご要望がありましたら、同じボタンから内容とメールアドレスをお送りください。メールにてご連絡のうえ、お力になれるか一緒に考えさせていただきます。</p>
+    </div>
+
+    <div class="foot">
+      <div class="co">合同会社AZ</div>
+      <div class="mail">info@az-llc.co.jp</div>
+    </div>
+  </div>
+</body>
+</html>
