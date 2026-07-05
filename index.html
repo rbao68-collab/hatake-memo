@@ -99,9 +99,10 @@
     </div>
 
     <footer class="privacy-note">
+      <button id="changelog-link" class="changelog-link" type="button">📢 畑メモのあゆみ</button>
       <p class="privacy-line">データはこのスマホの中だけに保存されます。外部に送信されません。</p>
       <p class="privacy-line">ごようぼうの送信は、ご自身のメールで行われます。</p>
-      <p class="version-line">畑メモ v0.1.2</p>
+      <p class="version-line">畑メモ v0.1.3</p>
     </footer>
   </main>
 
@@ -120,6 +121,29 @@
       <span class="tab-label">記録</span>
     </button>
   </nav>
+
+  <!-- ===== おしらせ（更新履歴）モーダル ===== -->
+  <div id="changelog-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="changelog-title">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="document">
+      <div class="modal-head">
+        <h2 id="changelog-title" class="modal-title">📢 畑メモのあゆみ</h2>
+        <button id="changelog-close" class="modal-close" type="button" aria-label="閉じる" data-close>✕ とじる</button>
+      </div>
+      <div class="modal-body">
+        <p class="changelog-message">畑メモは、みなさまのごようぼうに合わせて成長していきます。「こんなことができたら」という思いつきを、どうぞ遠慮なくお聞かせください。どんな小さなことでも歓迎です。</p>
+
+        <h3 class="changelog-subtitle">更新履歴</h3>
+        <ul class="changelog-list">
+          <li><span class="cl-ver">v0.1.2</span><span class="cl-date">（2026年7月）</span>ごようぼう送信ボタンを追加</li>
+          <li><span class="cl-ver">v0.1.1</span><span class="cl-date">（2026年7月）</span>CSV書き出し・アイコン・プライバシー表示を追加</li>
+          <li><span class="cl-ver">v0.1.0</span><span class="cl-date">（2026年7月）</span>公開。売上・作業・記録の基本機能</li>
+        </ul>
+
+        <p class="changelog-foot">次の項目は、あなたのごようぼうかもしれません。</p>
+      </div>
+    </div>
+  </div>
 
   <!-- トースト（保存通知） -->
   <div id="toast" class="toast" hidden></div>

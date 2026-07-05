@@ -2,7 +2,7 @@
 'use strict';
 
 /* バージョンを上げると activate で旧キャッシュを全掃除 */
-const CACHE_NAME = 'hatake-memo-v0.1.2';
+const CACHE_NAME = 'hatake-memo-v0.1.3';
 
 const ASSETS = [
   './',

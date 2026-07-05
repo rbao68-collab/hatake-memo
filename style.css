@@ -233,6 +233,117 @@ body {
   font-size: 12px;
   color: #9a9683;
 }
+.changelog-link {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 8px 4px;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.changelog-link:active { color: var(--green-dark); }
+
+/* ===== おしらせモーダル ===== */
+body.modal-open { overflow: hidden; }
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal[hidden] { display: none; }
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(35, 40, 28, .55);
+}
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  background: var(--card);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
+  -webkit-overflow-scrolling: touch;
+}
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.modal-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+}
+.modal-close {
+  flex: none;
+  min-height: 56px;
+  padding: 0 16px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg);
+  color: var(--text-sub);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modal-close:active { background: var(--green-soft); }
+
+.changelog-message {
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--green-soft);
+  border-radius: 12px;
+  padding: 14px;
+}
+.changelog-subtitle {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--green-dark);
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 6px;
+}
+.changelog-list {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+.changelog-list li {
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.changelog-list li:last-child { border-bottom: none; }
+.cl-ver { font-weight: 800; color: var(--green); margin-right: 2px; }
+.cl-date { font-size: 15px; color: var(--text-sub); margin-right: 6px; }
+.changelog-foot {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--gold);
+  text-align: center;
+}
 
 .month-header {
   display: flex;

@@ -412,7 +412,7 @@ function sendFeedback() {
     '（ここにご記入ください）\n' +
     '\n' +
     '---\n' +
-    '畑メモ v0.1.2';
+    '畑メモ v0.1.3';
   const url = 'mailto:' + to +
     '?subject=' + encodeURIComponent(subject) +
     '&body=' + encodeURIComponent(body);
@@ -420,6 +420,30 @@ function sendFeedback() {
 }
 
 document.getElementById('feedback-btn').addEventListener('click', sendFeedback);
+
+/* ============================================================
+   おしらせ（更新履歴）モーダル
+   ============================================================ */
+const changelogModal = document.getElementById('changelog-modal');
+
+function openChangelog() {
+  changelogModal.hidden = false;
+  document.body.classList.add('modal-open');
+}
+function closeChangelog() {
+  changelogModal.hidden = true;
+  document.body.classList.remove('modal-open');
+}
+
+document.getElementById('changelog-link').addEventListener('click', openChangelog);
+// 背景・とじるボタン（data-close 付き）で閉じる
+changelogModal.querySelectorAll('[data-close]').forEach((el) => {
+  el.addEventListener('click', closeChangelog);
+});
+// Esc でも閉じる
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !changelogModal.hidden) closeChangelog();
+});
 
 /* ============================================================
    起動時
