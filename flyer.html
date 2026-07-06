@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>畑メモ チラシ（A5横）</title>
+<style>
+  /* A5 横（210mm × 148mm）印刷用 */
+  @page { size: A5 landscape; margin: 0; }
+
+  :root {
+    --green:      #4a7c2f;
+    --green-dark: #3a6224;
+    --green-soft: #e5efd8;
+    --bg:         #f4f1e9;
+    --text:       #23281c;
+    --text-sub:   #5c6350;
+    --gold:       #b5761f;
+    --line:       #d9d5c6;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #ddd; }
+
+  .page {
+    box-sizing: border-box;
+    width: 210mm;
+    height: 148mm;
+    margin: 0 auto;
+    padding: 11mm 12mm 9mm;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .main { flex: 1; display: flex; gap: 12mm; align-items: center; }
+
+  /* 左：QR */
+  .left { flex: none; width: 74mm; text-align: center; }
+  .qr-img {
+    display: block;
+    width: 58mm;
+    height: 58mm;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2mm;
+    border-radius: 3mm;
+    border: 1pt solid var(--line);
+    image-rendering: pixelated;
+  }
+  .qr-url {
+    margin-top: 2mm;
+    font-family: "Menlo", "Courier New", monospace;
+    font-size: 9.5pt;
+    color: var(--text);
+    word-break: break-all;
+  }
+  .qr-hint {
+    margin-top: 1.5mm;
+    font-size: 9pt;
+    color: var(--text-sub);
+  }
+
+  /* 右：本文 */
+  .right { flex: 1; min-width: 0; }
+  .brand {
+    margin: 0;
+    font-size: 33pt;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--green);
+    line-height: 1.1;
+  }
+  .brand .leaf { font-size: 26pt; }
+  .tag {
+    margin: 2.5mm 0 5mm;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--green-dark);
+  }
+  .features { margin: 0 0 5mm; padding: 0; list-style: none; }
+  .features li {
+    font-size: 12pt;
+    line-height: 1.5;
+    padding: 1.6mm 0;
+    display: flex;
+    gap: 2.5mm;
+    align-items: baseline;
+  }
+  .features li .ck { color: var(--green); font-weight: 800; flex: none; }
+
+  .highlight {
+    display: block;
+    margin: 0;
+    background: var(--green);
+    color: #fff;
+    font-size: 11.5pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-align: center;
+    white-space: nowrap;
+    padding: 3.2mm 4mm;
+    border-radius: 999px;
+  }
+
+  /* 脚注 */
+  .foot {
+    margin-top: 6mm;
+    padding-top: 3mm;
+    border-top: 1.5pt solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 10pt;
+    color: var(--text-sub);
+  }
+  .foot .co { font-weight: 800; color: var(--text); }
+  .foot .site { font-family: "Menlo", "Courier New", monospace; }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; }
+  }
+  @media screen {
+    body { padding: 14px 0; background: #ddd; }
+    .page { box-shadow: 0 3px 16px rgba(0,0,0,.25); }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="main">
+      <div class="left">
+        <img class="qr-img" src="qr.png" alt="畑メモ QRコード">
+        <div class="qr-url">hatake-memo.rbao68.workers.dev</div>
+        <div class="qr-hint">スマホのカメラでQRコードを読み取り</div>
+      </div>
+
+      <div class="right">
+        <h1 class="brand"><span class="leaf">🌱</span> 畑メモ</h1>
+        <p class="tag">農作業の記録をスマホで簡単に</p>
+
+        <ul class="features">
+          <li><span class="ck">✓</span>売上と作業を、指先ひとつでワンタップ記録</li>
+          <li><span class="ck">✓</span>月ごとの売上を自動で集計、CSVで書き出しも</li>
+          <li><span class="ck">✓</span>「ホーム画面に追加」でアプリのように使える</li>
+        </ul>
+
+        <p class="highlight">無料・インストール不要・データはあなたのもの</p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="co">企画・制作　合同会社AZ</span>
+      <span class="site">az-llc.co.jp</span>
+    </div>
+  </div>
+</body>
+</html>
